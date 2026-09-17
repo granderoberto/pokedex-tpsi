@@ -1,1 +1,4 @@
-<p>categories works!</p>
+<h1>Categorie</h1>
+@for (category of categories; track category) {
+  <button [routerLink]="['/type', category]">{{ category }}</button>
+}
