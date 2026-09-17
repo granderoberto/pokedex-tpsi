@@ -1,1 +1,19 @@
-<p>pokemon-detail works!</p>
+@if (loading) {
+  <div>caricamento...</div>
+}
+
+@if (pokemon) {
+  <h1>{{ pokemon.name }} (#{{ pokemon.id }})</h1>
+
+  <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name">
+
+  <p>Altezza: {{ pokemon.height / 10 }} m</p>
+  <p>Peso: {{ pokemon.weight / 10 }} kg</p>
+
+  <p>Tipi:
+    @for (t of pokemon.types; track t.type.name) {
+      <span>{{ t.type.name }} </span>
+    }
+  </p>
+}
+<a routerLink="/categories">← Torna alle categorie</a>
