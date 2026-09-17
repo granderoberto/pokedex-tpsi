@@ -1,1 +1,11 @@
-<p>pokemon-list works!</p>
+<h1>Pokemon di tipo {{ typeName }}</h1>
+
+<a routerLink="/categories">← Torna alle categorie</a>
+
+@if (loading) {
+  <div>caricamento...</div>
+}
+
+@for (p of pokemons; track p.pokemon.name) {
+  <button [routerLink]="['/pokemon', p.pokemon.name]">{{ p.pokemon.name }}</button>
+}
